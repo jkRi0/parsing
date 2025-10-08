@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ANTLR Java Parser Demo</title>
+</head>
+<body>
+  <h2>ANTLR Java Parser Demo</h2>
+  <textarea id="code" rows="10" cols="80">
+class Hello { public static void main(String[] a){ System.out.println("Hi"); } }
+  </textarea>
+  <br><button id="btn">Parse</button>
+  <pre id="out"></pre>
+
+  <script type="module">
+    // load the browser-friendly antlr4 runtime
+    import { CharStream, CommonTokenStream } from "./node_modules/antlr4ts/CharStream";
+    import { JavaLexer } from "./dist/JavaLexer.js";
+    import { JavaParser } from "./dist/JavaParser.js";
+    import { MyErrorListener } from "./dist/MyErrorListener.js";
+
+    const btn = document.getElementById("btn");
+    btn.onclick = () => {
+      const code = document.getElementById("code").value;
+      const chars = new CharStream(code);
+      const lexer = new JavaLexer(chars);
+      lexer.removeErrorListeners();
+      lexer.addErrorListener(new MyErrorListener());
+      const tokens = new CommonTokenStream(lexer);
+      const parser = new JavaParser(tokens);
+      parser.removeErrorListeners();
+      parser.addErrorListener(new MyErrorListener());
+      parser.buildParseTrees = true;
+      const tree = parser.compilationUnit();
+      document.getElementById("out").textContent =
+        tree.toStringTree(parser.ruleNames);
+    };
+  </script>
+</body>
+</html>

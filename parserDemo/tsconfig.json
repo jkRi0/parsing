@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "ESNext",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "antlr4ts/*": ["./node_modules/antlr4ts/*"],
+      "./antlr4.web.mjs": ["./node_modules/antlr4/dist/antlr4.web.mjs"]
+    }
+  },
+  "include": [
+    "JavaLexer.ts",
+    "JavaParser.ts",
+    "JavaParserListener.ts",
+    "MyErrorListener.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

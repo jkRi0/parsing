@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Java Compiler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>HTML Java Syntax Checker</h1>
+        <textarea id="javaCode" placeholder="Enter your Java code here..."></textarea>
+        <button id="compileRun">Check Syntax</button>
+        <pre id="output"></pre>
+    </div>
+    <script type="module">
+        import { CharStreams } from './node_modules/antlr4ts/CharStreams.js';
+        import { CommonTokenStream } from './node_modules/antlr4ts/CommonTokenStream.js';
+        import { JavaLexer } from './dist/src/JavaLexer.js';
+        import { JavaParser } from './dist/src/JavaParser.js';
+
+        document.getElementById('compileRun').addEventListener('click', () => {
+            const javaCode = document.getElementById('javaCode').value;
+            const outputElement = document.getElementById('output');
+            outputElement.textContent = ''; // Clear previous output
+
+            // ANTLR parsing for syntax check
+            const inputStream = CharStreams.fromString(javaCode);
+            const lexer = new JavaLexer(inputStream);
+            const tokenStream = new CommonTokenStream(lexer);
+            const parser = new JavaParser(tokenStream);
+
+            // Custom error listener
+            const errors = [];
+            parser.removeErrorListeners(); // Remove default console error listener
+            parser.addErrorListener({
+                syntaxError: (recognizer, offendingSymbol, line, charPositionInLine, msg, e) => {
+                    errors.push(`Line ${line}:${charPositionInLine} - ${msg}`);
+                }
+            });
+
+            try {
+                parser.compilationUnit(); // Start parsing from the root rule
+                if (errors.length === 0) {
+                    outputElement.textContent = "Syntax check successful!\n\nNote: This tool only performs client-side syntax validation and does not compile or execute Java code.";
+                    outputElement.style.color = 'green';
+                } else {
+                    outputElement.textContent = "Syntax Errors:\n" + errors.join("\n");
+                    outputElement.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Parsing error:', error);
+                outputElement.textContent = `An unexpected parsing error occurred: ${error.message}`;
+                outputElement.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
