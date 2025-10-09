@@ -1,0 +1,124 @@
+public class FullFeaturesDemo {
+
+    // Fields
+    private int id = 1;
+    private static String appName = "DemoApp";
+
+    public static void main(String[] args) {
+        // 🔹 Primitive variables
+        int x = 5;
+        int y = 10;
+        boolean active = true;
+        double pi = 3.14;
+        char letter = 'A';
+
+        // 🔹 Reference type
+        String message = "Hello, Java!";
+
+        // 🔹 Arrays
+        int[] numbers = {1, 2, 3, 4, 5};
+        String[] names = new String[3];
+        names[0] = "Alice";
+        names[1] = "Bob";
+        names[2] = "Charlie";
+
+        // 🔹 Arithmetic and boolean expressions
+        int sum = x + y;
+        boolean check = (x < y) && active;
+
+        // 🔹 If / else if / else
+        if (x < y) {
+            System.out.println("x < y");
+        } else if (x == y) {
+            System.out.println("x == y");
+        } else {
+            System.out.println("x > y");
+        }
+
+        // 🔹 Switch statement
+        switch (letter) {
+            case 'A':
+                System.out.println("Got A");
+                break;
+            case 'B':
+                System.out.println("Got B");
+                break;
+            default:
+                System.out.println("Unknown letter");
+        }
+
+        // 🔹 For loop
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.println("Number: " + numbers[i]);
+        }
+
+        // 🔹 Enhanced for loop (foreach)
+        for (String name : names) {
+            System.out.println("Name: " + name);
+        }
+
+        // 🔹 While loop
+        int count = 0;
+        while (count < 3) {
+            System.out.println("While count: " + count);
+            count++;
+        }
+
+        // 🔹 Do-while loop
+        int doCount = 0;
+        do {
+            System.out.println("Do-while count: " + doCount);
+            doCount++;
+        } while (doCount < 2);
+
+        // 🔹 Ternary operator
+        String result = (x > y) ? "X greater" : "Y greater";
+
+        // 🔹 Method call and return value
+        int total = add(x, y);
+        System.out.println("Sum: " + total);
+
+        // 🔹 Try-catch-finally
+        try {
+            int div = x / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero");
+        } finally {
+            System.out.println("Finally block executed");
+        }
+
+        // 🔹 Object creation and field access
+        FullFeaturesDemo demo = new FullFeaturesDemo();
+        System.out.println("App Name: " + appName);
+        System.out.println("ID: " + demo.id);
+
+        // 🔹 Return statement (from main just ends)
+    }
+
+    // 🔹 Method with parameters and return
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    // 🔹 Method overloading
+    public static double add(double a, double b) {
+        return a + b;
+    }
+
+    // 🔹 Method with control flow
+    public String describe(int number) {
+        if (number > 0) {
+            return "Positive";
+        } else if (number < 0) {
+            return "Negative";
+        } else {
+            return "Zero";
+        }
+    }
+}
+
+
+
+
+
+(compilationUnit (typeDeclaration (classOrInterfaceModifier public) (classDeclaration class (identifier FullFeaturesDemo) (classBody { (classBodyDeclaration (modifier (classOrInterfaceModifier private)) (memberDeclaration (fieldDeclaration (typeType (primitiveType int)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier id)) = (variableInitializer (expression (primary (literal (integerLiteral 1))))))) ;))) (classBodyDeclaration (modifier (classOrInterfaceModifier private)) (modifier (classOrInterfaceModifier static)) (memberDeclaration (fieldDeclaration (typeType (classOrInterfaceType (classType (typeIdentifier String)))) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier appName)) = (variableInitializer (expression (primary (literal "DemoApp")))))) ;))) (classBodyDeclaration (modifier (classOrInterfaceModifier public)) (modifier (classOrInterfaceModifier static)) (memberDeclaration (methodDeclaration (typeTypeOrVoid void) (identifier main) (formalParameters ( (formalParameter (typeType (classOrInterfaceType (classType (typeIdentifier String))) [ ]) (variableDeclaratorId (identifier args))) )) (methodBody (block { (blockStatement (localVariableDeclaration (typeType (primitiveType int)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier x)) = (variableInitializer (expression (primary (literal (integerLiteral 5)))))))) ;) (blockStatement (localVariableDeclaration (typeType (primitiveType int)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier y)) = (variableInitializer (expression (primary (literal (integerLiteral 10)))))))) ;) (blockStatement (localVariableDeclaration (typeType (primitiveType boolean)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier active)) = (variableInitializer (expression (primary (literal true))))))) ;) (blockStatement (localVariableDeclaration (typeType (primitiveType double)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier pi)) = (variableInitializer (expression (primary (literal (floatLiteral 3.14)))))))) ;) (blockStatement (localVariableDeclaration (typeType (primitiveType char)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier letter)) = (variableInitializer (expression (primary (literal 'A'))))))) ;) (blockStatement (localVariableDeclaration (typeType (classOrInterfaceType (classType (typeIdentifier String)))) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier message)) = (variableInitializer (expression (primary (literal "Hello, Java!"))))))) ;) (blockStatement (localVariableDeclaration (typeType (primitiveType int) [ ]) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier numbers)) = (variableInitializer (arrayInitializer { (variableInitializer (expression (primary (literal (integerLiteral 1))))) , (variableInitializer (expression (primary (literal (integerLiteral 2))))) , (variableInitializer (expression (primary (literal (integerLiteral 3))))) , (variableInitializer (expression (primary (literal (integerLiteral 4))))) , (variableInitializer (expression (primary (literal (integerLiteral 5))))) }))))) ;) (blockStatement (localVariableDeclaration (typeType (classOrInterfaceType (classType (typeIdentifier String))) [ ]) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier names)) = (variableInitializer (expression new (creator (createdName (identifier String)) (arrayCreatorRest [ (expression (primary (literal (integerLiteral 3)))) ]))))))) ;) (blockStatement (statement (expression (expression (expression (primary (identifier names))) [ (expression (primary (literal (integerLiteral 0)))) ]) = (expression (primary (literal "Alice")))) ;)) (blockStatement (statement (expression (expression (expression (primary (identifier names))) [ (expression (primary (literal (integerLiteral 1)))) ]) = (expression (primary (literal "Bob")))) ;)) (blockStatement (statement (expression (expression (expression (primary (identifier names))) [ (expression (primary (literal (integerLiteral 2)))) ]) = (expression (primary (literal "Charlie")))) ;)) (blockStatement (localVariableDeclaration (typeType (primitiveType int)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier sum)) = (variableInitializer (expression (expression (primary (identifier x))) + (expression (primary (identifier y)))))))) ;) (blockStatement (localVariableDeclaration (typeType (primitiveType boolean)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier check)) = (variableInitializer (expression (expression (primary ( (expression (expression (primary (identifier x))) < (expression (primary (identifier y)))) ))) && (expression (primary (identifier active)))))))) ;) (blockStatement (statement if ( (expression (expression (primary (identifier x))) < (expression (primary (identifier y)))) ) (statement (block { (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (primary (literal "x < y")))) )))) ;)) })) else (statement if ( (expression (expression (primary (identifier x))) == (expression (primary (identifier y)))) ) (statement (block { (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (primary (literal "x == y")))) )))) ;)) })) else (statement (block { (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (primary (literal "x > y")))) )))) ;)) }))))) (blockStatement (statement switch ( (expression (primary (identifier letter))) ) { (switchBlockStatementGroup (switchLabel case (expression (primary (literal 'A')))) : (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (primary (literal "Got A")))) )))) ;)) (blockStatement (statement break ;))) (switchBlockStatementGroup (switchLabel case (expression (primary (literal 'B')))) : (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (primary (literal "Got B")))) )))) ;)) (blockStatement (statement break ;))) (switchBlockStatementGroup (switchLabel default) : (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (primary (literal "Unknown letter")))) )))) ;))) })) (blockStatement (statement for ( (forControl (forInit (localVariableDeclaration (typeType (primitiveType int)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier i)) = (variableInitializer (expression (primary (literal (integerLiteral 0))))))))) ; (expression (expression (primary (identifier i))) < (expression (expression (primary (identifier numbers))) . (identifier length))) ; (expressionList (expression (expression (primary (identifier i))) ++))) ) (statement (block { (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (expression (primary (literal "Number: "))) + (expression (expression (primary (identifier numbers))) [ (expression (primary (identifier i))) ]))) )))) ;)) })))) (blockStatement (statement for ( (forControl (enhancedForControl (typeType (classOrInterfaceType (classType (typeIdentifier String)))) (variableDeclaratorId (identifier name)) : (expression (primary (identifier names))))) ) (statement (block { (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (expression (primary (literal "Name: "))) + (expression (primary (identifier name))))) )))) ;)) })))) (blockStatement (localVariableDeclaration (typeType (primitiveType int)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier count)) = (variableInitializer (expression (primary (literal (integerLiteral 0)))))))) ;) (blockStatement (statement while ( (expression (expression (primary (identifier count))) < (expression (primary (literal (integerLiteral 3))))) ) (statement (block { (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (expression (primary (literal "While count: "))) + (expression (primary (identifier count))))) )))) ;)) (blockStatement (statement (expression (expression (primary (identifier count))) ++) ;)) })))) (blockStatement (localVariableDeclaration (typeType (primitiveType int)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier doCount)) = (variableInitializer (expression (primary (literal (integerLiteral 0)))))))) ;) (blockStatement (statement do (statement (block { (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (expression (primary (literal "Do-while count: "))) + (expression (primary (identifier doCount))))) )))) ;)) (blockStatement (statement (expression (expression (primary (identifier doCount))) ++) ;)) })) while ( (expression (expression (primary (identifier doCount))) < (expression (primary (literal (integerLiteral 2))))) ) ;)) (blockStatement (localVariableDeclaration (typeType (classOrInterfaceType (classType (typeIdentifier String)))) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier result)) = (variableInitializer (expression (expression (primary ( (expression (expression (primary (identifier x))) > (expression (primary (identifier y)))) ))) ? (expression (primary (literal "X greater"))) : (expression (primary (literal "Y greater")))))))) ;) (blockStatement (localVariableDeclaration (typeType (primitiveType int)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier total)) = (variableInitializer (expression (methodCall (identifier add) (arguments ( (expressionList (expression (primary (identifier x))) , (expression (primary (identifier y)))) )))))))) ;) (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (expression (primary (literal "Sum: "))) + (expression (primary (identifier total))))) )))) ;)) (blockStatement (statement try (block { (blockStatement (localVariableDeclaration (typeType (primitiveType int)) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier div)) = (variableInitializer (expression (expression (primary (identifier x))) / (expression (primary (literal (integerLiteral 0))))))))) ;) }) (catchClause catch ( (catchType (qualifiedName (identifier ArithmeticException))) (identifier e) ) (block { (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (primary (literal "Error: Division by zero")))) )))) ;)) })) (finallyBlock finally (block { (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (primary (literal "Finally block executed")))) )))) ;)) })))) (blockStatement (localVariableDeclaration (typeType (classOrInterfaceType (classType (typeIdentifier FullFeaturesDemo)))) (variableDeclarators (variableDeclarator (variableDeclaratorId (identifier demo)) = (variableInitializer (expression new (creator (createdName (identifier FullFeaturesDemo)) (classCreatorRest (arguments ( ))))))))) ;) (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (expression (primary (literal "App Name: "))) + (expression (primary (identifier appName))))) )))) ;)) (blockStatement (statement (expression (expression (expression (primary (identifier System))) . (identifier out)) . (methodCall (identifier println) (arguments ( (expressionList (expression (expression (primary (literal "ID: "))) + (expression (expression (primary (identifier demo))) . (identifier id)))) )))) ;)) }))))) (classBodyDeclaration (modifier (classOrInterfaceModifier public)) (modifier (classOrInterfaceModifier static)) (memberDeclaration (methodDeclaration (typeTypeOrVoid (typeType (primitiveType int))) (identifier add) (formalParameters ( (formalParameter (typeType (primitiveType int)) (variableDeclaratorId (identifier a))) , (formalParameterList (formalParameter (typeType (primitiveType int)) (variableDeclaratorId (identifier b)))) )) (methodBody (block { (blockStatement (statement return (expression (expression (primary (identifier a))) + (expression (primary (identifier b)))) ;)) }))))) (classBodyDeclaration (modifier (classOrInterfaceModifier public)) (modifier (classOrInterfaceModifier static)) (memberDeclaration (methodDeclaration (typeTypeOrVoid (typeType (primitiveType double))) (identifier add) (formalParameters ( (formalParameter (typeType (primitiveType double)) (variableDeclaratorId (identifier a))) , (formalParameterList (formalParameter (typeType (primitiveType double)) (variableDeclaratorId (identifier b)))) )) (methodBody (block { (blockStatement (statement return (expression (expression (primary (identifier a))) + (expression (primary (identifier b)))) ;)) }))))) (classBodyDeclaration (modifier (classOrInterfaceModifier public)) (memberDeclaration (methodDeclaration (typeTypeOrVoid (typeType (classOrInterfaceType (classType (typeIdentifier String))))) (identifier describe) (formalParameters ( (formalParameter (typeType (primitiveType int)) (variableDeclaratorId (identifier number))) )) (methodBody (block { (blockStatement (statement if ( (expression (expression (primary (identifier number))) > (expression (primary (literal (integerLiteral 0))))) ) (statement (block { (blockStatement (statement return (expression (primary (literal "Positive"))) ;)) })) else (statement if ( (expression (expression (primary (identifier number))) < (expression (primary (literal (integerLiteral 0))))) ) (statement (block { (blockStatement (statement return (expression (primary (literal "Negative"))) ;)) })) else (statement (block { (blockStatement (statement return (expression (primary (literal "Zero"))) ;)) }))))) }))))) }))) <EOF>)
