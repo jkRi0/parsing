@@ -9,6 +9,7 @@ function onParse() {
     const parser = new JavaParser.JavaParser(tokens);
     parser.buildParseTrees = true;
     const tree = parser.compilationUnit();
+    console.log("Parse Tree:", tree.toStringTree(parser.ruleNames));
 
     output.textContent = "Parse successful!\n" + tree.toStringTree(parser.ruleNames);
   } catch (err) {
